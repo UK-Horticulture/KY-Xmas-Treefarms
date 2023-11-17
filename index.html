@@ -14,7 +14,7 @@
 
 <head>
   <meta charset=utf-8 />
-  <title>Kentucky Commercial Cut Flower Grower Directory</title>
+  <title>Kentucky Christmas Tree Farm Directory</title>
   <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
   <link href='https://api.mapbox.com/mapbox-assembly/v0.21.2/assembly.min.css' rel='stylesheet'>
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.1/dist/leaflet.css" />
@@ -177,7 +177,7 @@
 <body>
 
   <section id="title">
-    <b>Kentucky Commercial Cut Flower Grower Directory</b>
+    <b>Kentucky Christmas Tree Farm Directory</b>
   </section>
 
   <div id="map" class='viewport-full viewport-full-ml'></div>
@@ -192,12 +192,12 @@
     <div class="modal-content">
       <span class="close">&times;</span>
       <p><h2>About This Map</h2><br>
-        This interactive map shows the approximate locations of cut flower growers across the Commonwealth of Kentucky.</p><br>
+        This interactive map shows the approximate locations of Christmas Tree farms across the Commonwealth of Kentucky.</p><br>
         <h2>Using This Map</h2><br>
         <p><b>Clicking/tapping</b> an icon on the map shows shows detail.</p><br>
         <p>The +/- buttons at the top left <b>zoom in and out</b>, as does the mouse wheel, and standard mobile gestures.</p><br>
         <h2>Data Sources</h2><br>
-          <p>The primary data source is the <a href="https://kyhortcouncil.org/" target="_blank">Kentucky Horticulture Council</a>.<br><br>
+          <p>The primary data source is Christmas Tree Farm survey, supported by the <a href="https://kyhortcouncil.org/" target="_blank">Kentucky Horticulture Council</a>.<br><br>
           </p>
         <p><h2>Funding and Support</h2><br><center>
           <a href="https://agpolicy.ky.gov/board/Pages/default.aspx" target="_blank"><img src="images/kadf-logo-footer.gif" hspace="20" vspace="20" border="5"></a>
@@ -244,7 +244,7 @@
     });
 
   // request a mapbox raster tile layer and add to map
-     L.tileLayer.provider('USGS.USTopo').addTo(map);
+     L.tileLayer.provider('CartoDB.VoyagerLabelsUnder').addTo(map);
 
   // set display style for county polygons
     var countyStyle = {
@@ -256,7 +256,7 @@
 
     // set icons for layer types
     var cutflowerIcon = L.icon({
-        iconUrl: "./icons/cutflower-yellow.png",
+        iconUrl: "./icons/xmastree.png",
         iconSize: [35, 35],
         popupAnchor: [0, -15]
     });
@@ -266,7 +266,7 @@
   $.getJSON("./data/ky-counties.geojson", function(counties) {
 
         // load CSV file
-        omnivore.csv('data/FlowerGrowerDirectory2023.csv')
+        omnivore.csv('data/XmasTreeFarmsNov2023.csv')
         .on('ready', function(e) {
             drawMap(e.target.toGeoJSON());
             addDataToMap(counties, countyStyle, map);
@@ -291,8 +291,7 @@
         onEachFeature : function(feature,layer) {
           var props = feature.properties;
           var locationPopup =
-            "<h3>" + props.name + "</h3><br><b>Sales Outlet(s):  </b>" + props.markets + "<br>"
-            + "<br><b>Social Media:</b>  <BR><a href='" + props.facebook + "'><img src='" + props.fbIcon + "'></a>   "
+            "<h3>" + props.Farm_Name + "</h3>" + "<a href='" + props.facebook + "'><img src='" + props.fbIcon + "'></a>   "
             + "<a href='" + props.instagram + "'><img src='" + props.instaIcon + "'></a>"
             + "<br><br><a href='" + props.www + "'>" + props.www + "</a><br><a href='mailto:" + props.email + "'>" + props.email
             + "</a></p></p>";
@@ -350,7 +349,7 @@
 
     // filtering functions for creating multiple layers from single geojson
     function cutflowerFilter(feature) {
-      if (feature.properties.type === "Cut Flower Grower") return true
+      if (feature.properties.type === "Christmas Tree Farm") return true
     }
 
   } // end drawMap()
