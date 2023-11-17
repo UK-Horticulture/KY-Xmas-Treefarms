@@ -30,8 +30,14 @@
     left: 15px;
     width: 35;
     padding: 6px 12px;
-    background: rgba(256, 256, 256, .80);
-    border: 1px solid #005d7e;
+    background-image: repeating-linear-gradient(
+         135deg,
+         #60d152,
+         #60d152 10px,
+         #c2ffba 10px,
+         #c2ffba 20px
+         );
+    border: 0px solid #2c5e36;
     border-radius: 3px;
     z-index: 800;
     font-size: 1.6em;
@@ -78,7 +84,7 @@
     width: 100%; /* Full width */
     height: 100%; /* Full height */
     overflow: auto; /* Enable scroll if needed */
-    background-color: #005d7e; /* Fallback color */
+    background-color: #2c5e36; /* Fallback color */
     background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
   }
 
@@ -89,7 +95,7 @@
     padding: 20px;
     font-size: 12px;
     line-height: 15px;
-    border: 1px solid #005d7e;
+    border: 1px solid #2c5e36;
     border-radius: 5px;
     width: 80%;
     max-width: 640px;
@@ -120,7 +126,7 @@
     width: 60%;
     padding: 15px 15px;
     background: rgba(256, 256, 256, .85);
-    border: 1px solid #005d7e;
+    border: 1px solid #2c5e36;
     border-radius: 5px;
     font-size: 12px;
     line-height: 15px;
@@ -144,7 +150,19 @@
   height: 44px;
   background-size: 127px 44px;
   }
-
+  .multicolortext {
+       background-image: repeating-linear-gradient(
+            45deg,
+            #fa1111,
+            #fa1111 1px,
+            #ff4242 1px,
+            #ff4242 2px
+            );
+       -webkit-background-clip: text;
+       -moz-background-clip: text;
+       background-clip: text;
+       color: transparent;
+ }
 
   h1 {
     color: #005d7e;
@@ -177,7 +195,7 @@
 <body>
 
   <section id="title">
-    <b>Kentucky Christmas Tree Farm Directory</b>
+    <b><span class="multicolortext">Kentucky Christmas Tree Farm Directory</span></b>
   </section>
 
   <div id="map" class='viewport-full viewport-full-ml'></div>
@@ -248,9 +266,9 @@
 
   // set display style for county polygons
     var countyStyle = {
-        "color": "#005d7e",
-        "weight": 2,
-        "fillOpacity" : 0.1,
+        "color": "#2c5e36",
+        "weight": 1,
+        "fillOpacity" : 0.05,
         "opacity": 0.5
     };
 
