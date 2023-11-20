@@ -1,15 +1,16 @@
 <!DOCTYPE html>
 <html>
 
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-121907600-2"></script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NB7VPLHE4M"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
 
-  gtag('config', 'UA-121907600-2');
+  gtag('config', 'G-NB7VPLHE4M');
 </script>
+
 
 
 <head>
@@ -32,10 +33,10 @@
     padding: 6px 12px;
     background-image: repeating-linear-gradient(
          135deg,
-         #60d152,
-         #60d152 10px,
-         #c2ffba 10px,
-         #c2ffba 20px
+         #abf59f,
+         #abf59f 10px,
+         #ceffc7 10px,
+         #ceffc7 20px
          );
     border: 0px solid #2c5e36;
     border-radius: 3px;
@@ -84,7 +85,7 @@
     width: 100%; /* Full width */
     height: 100%; /* Full height */
     overflow: auto; /* Enable scroll if needed */
-    background-color: #2c5e36; /* Fallback color */
+    background-color: #abf59f; /* Fallback color */
     background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
   }
 
@@ -95,7 +96,7 @@
     padding: 20px;
     font-size: 12px;
     line-height: 15px;
-    border: 1px solid #2c5e36;
+    border: 1px solid #3d7d33;
     border-radius: 5px;
     width: 80%;
     max-width: 640px;
@@ -150,13 +151,18 @@
   height: 44px;
   background-size: 127px 44px;
   }
+
+  .leaflet-container a {
+       color: #3d7d33;
+ }
+
   .multicolortext {
        background-image: repeating-linear-gradient(
             45deg,
-            #fa1111,
-            #fa1111 1px,
-            #ff4242 1px,
-            #ff4242 2px
+            #000000,
+            #000000 1px,
+            #000000 1px,
+            #000000 2px
             );
        -webkit-background-clip: text;
        -moz-background-clip: text;
@@ -165,22 +171,22 @@
  }
 
   h1 {
-    color: #005d7e;
+    color: #3d7d33;
     font-weight: bold;
     font-size: 125%;
   }
   h2 {
-      color: #005d7e;
+      color: #3d7d33;
       font-weight: bold;
       font-size: 115%;
   }
   h3 {
-      color: #005d7e;
+      color: #3d7d33;
       font-weight: bold;
       font-size: 105%;
   }
   a {
-      color: #005d7e;
+      color: #3d7d33;
       font-weight: bold;
   }
   a:hover {
@@ -309,8 +315,8 @@
         onEachFeature : function(feature,layer) {
           var props = feature.properties;
           var locationPopup =
-            "<h3>" + props.Farm_Name + "</h3>" + "<a href='" + props.facebook + "'><img src='" + props.fbIcon + "'></a>   "
-            + "<a href='" + props.instagram + "'><img src='" + props.instaIcon + "'></a>"
+            "<h2>" + props.Farm_Name + "</h2><br>" + props.Physical_Address + "<b><br><br>" + props.phone +"</b>" + "<br><b><br><a href='" + props.facebook + "'><img src='" + props.fbIcon + "'></a>   "
+            + "<a href='" + props.instagram + "'><img src='" + props.instaIcon + "'></a></right>"
             + "<br><br><a href='" + props.www + "'>" + props.www + "</a><br><a href='mailto:" + props.email + "'>" + props.email
             + "</a></p></p>";
             layer.bindPopup(locationPopup);
